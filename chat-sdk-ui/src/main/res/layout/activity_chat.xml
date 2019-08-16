@@ -65,6 +65,137 @@
 
     </FrameLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:background="@color/black">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <ImageButton
+                android:id="@+id/boldBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bold"/>
+            <ImageButton
+                android:id="@+id/italicBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/italic"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/underlineBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/underline"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/superscriptBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/superscript"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/subscriptBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/subscript"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/linkBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/insert_link"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/colorBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/txt_color"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/bgColorBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_color"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/h1Btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/h1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/h2Btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/h2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/h3Btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/h3"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/h4Btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/h4"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/leftBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/justify_left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/centerBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/justify_center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/rightBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/justify_right"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/undoBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/undo"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+            <ImageButton
+                android:id="@+id/redoBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/redo"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+    </ScrollView>
     <co.chatsdk.ui.chat.TextInputView
         android:id="@+id/view_message_text_input"
         android:layout_width="match_parent"

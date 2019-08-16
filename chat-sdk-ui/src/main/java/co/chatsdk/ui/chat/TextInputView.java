@@ -7,6 +7,7 @@
 
 package co.chatsdk.ui.chat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -41,12 +42,13 @@ import co.chatsdk.ui.utils.ToastHelper;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import jp.wasabeef.richeditor.RichEditor;
 
 public class TextInputView extends LinearLayout implements TextView.OnEditorActionListener{
 
     protected ImageButton btnSend;
     protected ImageButton btnOptions;
-    protected TextInputEditText etMessage;
+    protected RichEditor etMessage;
     protected boolean audioModeEnabled = false;
     protected boolean recordOnPress = false;
     protected Recording recording = null;
@@ -135,48 +137,49 @@ public class TextInputView extends LinearLayout implements TextView.OnEditorActi
 
         btnOptions.setOnClickListener(view -> showOption());
 
-        etMessage.setOnEditorActionListener(this);
-        etMessage.setOnKeyListener(new OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                return false;
-            }
-        });
+//        etMessage.setOnEditorActionListener(this);
+//        etMessage.setOnKeyListener(new OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                return false;
+//            }
+//        });
 
-        etMessage.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+//        etMessage.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
-        etMessage.setOnFocusChangeListener((view, focus) -> {
-            if(delegate != null) {
-                if(focus) {
-                    delegate.get().onKeyboardShow();
-                }
-                else {
-                    delegate.get().onKeyboardHide();
-                }
-            }
-        });
+//        etMessage.setOnFocusChangeListener((view, focus) -> {
+//            if(delegate != null) {
+//                if(focus) {
+//                    delegate.get().onKeyboardShow();
+//                }
+//                else {
+//                    delegate.get().onKeyboardHide();
+//                }
+//            }
+//        });
 
-        etMessage.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(delegate != null) {
-                    delegate.get().startTyping();
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                updateSendButton();
-            }
-        });
+//        etMessage.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                if(delegate != null) {
+//                    delegate.get().startTyping();
+//                }
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                updateSendButton();
+//            }
+//        });
 
     }
 
+    @SuppressLint("StringFormatInvalid")
     public void startRecording (View view) {
 
         audioMaxLengthReached = false;
@@ -313,11 +316,11 @@ public class TextInputView extends LinearLayout implements TextView.OnEditorActi
 //    }
 
     public String getMessageText(){
-        return etMessage.getText().toString();
+        return etMessage.getHtml();
     }
 
     public void clearText(){
-        etMessage.getText().clear();
+        etMessage.setHtml("");
     }
 
 

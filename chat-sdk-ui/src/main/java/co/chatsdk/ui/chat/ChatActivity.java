@@ -22,6 +22,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -73,7 +74,7 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class ChatActivity extends BaseActivity implements TextInputDelegate, ChatOptionsDelegate {
+public class ChatActivity extends BaseActivity implements TextInputDelegate, ChatOptionsDelegate, View.OnClickListener {
 
     public static final int ADD_USERS = 103;
     public static final int SHOW_DETAILS = 200;
@@ -111,6 +112,7 @@ public class ChatActivity extends BaseActivity implements TextInputDelegate, Cha
     protected SpeedDialView messageActionsSpeedDialView;
     protected MessageActionHandler messageActionHandler;
 
+    private ImageButton boldBtn, italicBtn, underlineBtn, superscriptBtn, subscriptBtn, linkBtn, colorBtn, bgColorBtn, h1Btn, h2Btn, h3Btn, h4Btn, leftBtn, centerBtn, rightBtn, undoBtn, redoBtn;
     /**
      * If set to false in onCreate the menu threads wont be inflated in the menu.
      * This can be useful if you want to customize the action bar.
@@ -240,7 +242,52 @@ public class ChatActivity extends BaseActivity implements TextInputDelegate, Cha
                     }
         }));
 
+        //init toolbar click events
+        initToolbarClientEvents();
+
     }
+
+    private void initToolbarClientEvents() {
+        boldBtn.setOnClickListener(this);
+        italicBtn.setOnClickListener(this);
+        underlineBtn.setOnClickListener(this);
+        superscriptBtn.setOnClickListener(this);
+        subscriptBtn.setOnClickListener(this);
+        linkBtn.setOnClickListener(this);
+        colorBtn.setOnClickListener(this);
+        bgColorBtn.setOnClickListener(this);
+        h1Btn.setOnClickListener(this);
+        h2Btn.setOnClickListener(this);
+        h3Btn.setOnClickListener(this);
+        h4Btn.setOnClickListener(this);
+        leftBtn.setOnClickListener(this);
+        centerBtn.setOnClickListener(this);
+        rightBtn.setOnClickListener(this);
+        undoBtn.setOnClickListener(this);
+        redoBtn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        int viewId = view.getId();
+        if (viewId == R.id.boldBtn) {
+            textInputView.etMessage.setBold();
+        } else if (viewId == R.id.italicBtn) {
+            textInputView.etMessage.setItalic();
+        } else if (viewId == R.id.underlineBtn) {
+            textInputView.etMessage.setUnderline();
+        } else if (viewId == R.id.superscriptBtn) {
+            textInputView.etMessage.setSuperscript();
+        } else if (viewId == R.id.subscriptBtn) {
+            textInputView.etMessage.setSubscript();
+        } else if (viewId == R.id.linkBtn) {
+            textInputView.etMessage.setItalic();
+        } else if (viewId == R.id.italicBtn) {
+            textInputView.etMessage.setItalic();
+        }
+    }
+
+
 
     @Override
     protected Bitmap getTaskDescriptionBitmap() {
@@ -295,6 +342,26 @@ public class ChatActivity extends BaseActivity implements TextInputDelegate, Cha
         textInputView = findViewById(R.id.view_message_text_input);
         textInputView.setDelegate(this);
         textInputView.setAudioModeEnabled(ChatSDK.audioMessage() != null);
+
+
+        // Init Edit Toolbar items
+        boldBtn = findViewById(R.id.boldBtn);
+        italicBtn = findViewById(R.id.italicBtn);
+        underlineBtn = findViewById(R.id.underlineBtn);
+        superscriptBtn = findViewById(R.id.superscriptBtn);
+        subscriptBtn = findViewById(R.id.subscriptBtn);
+        linkBtn = findViewById(R.id.linkBtn);
+        colorBtn = findViewById(R.id.colorBtn);
+        bgColorBtn = findViewById(R.id.bgColorBtn);
+        h1Btn = findViewById(R.id.h1Btn);
+        h2Btn = findViewById(R.id.h2Btn);
+        h3Btn = findViewById(R.id.h3Btn);
+        h4Btn = findViewById(R.id.h4Btn);
+        leftBtn = findViewById(R.id.leftBtn);
+        centerBtn = findViewById(R.id.centerBtn);
+        rightBtn = findViewById(R.id.rightBtn);
+        undoBtn = findViewById(R.id.undoBtn);
+        redoBtn = findViewById(R.id.redoBtn);
 
         progressBar = findViewById(R.id.progress_bar);
 

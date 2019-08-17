@@ -109,8 +109,8 @@ public class Configuration {
     public boolean publicRoomCreationEnabled = false;
     public boolean saveImagesToDirectory = false;
 
-    public int messageColorMe = Color.parseColor("#b0cfea");
-    public int messageColorReply = Color.parseColor("#dadada");
+    public int messageColorMe = Color.parseColor("#ABCDF1");
+    public int messageColorReply = Color.parseColor("#ffffff");
 
     public int messageTextColorMe = Color.parseColor("#222222");
     public int messageTextColorReply = Color.parseColor("#222222");

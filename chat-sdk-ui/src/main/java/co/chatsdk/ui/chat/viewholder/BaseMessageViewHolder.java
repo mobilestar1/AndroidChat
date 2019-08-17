@@ -68,7 +68,7 @@ public class BaseMessageViewHolder extends AbstractMessageViewHolder {
         itemView.setOnLongClickListener(this::onLongClick);
 
         if(readReceiptImageView != null) {
-            readReceiptImageView.setVisibility(ChatSDK.readReceipts() != null ? View.VISIBLE : View.INVISIBLE);
+            readReceiptImageView.setVisibility(ChatSDK.readReceipts() != null ? View.VISIBLE : View.GONE);
         }
 
         // Enable linkify

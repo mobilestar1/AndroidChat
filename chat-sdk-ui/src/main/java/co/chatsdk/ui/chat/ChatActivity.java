@@ -248,6 +248,7 @@ public class ChatActivity extends BaseActivity implements TextInputDelegate, Cha
     }
 
     private void initToolbarClientEvents() {
+        textInputView.etMessage.setFontSize(50);
         boldBtn.setOnClickListener(this);
         italicBtn.setOnClickListener(this);
         underlineBtn.setOnClickListener(this);

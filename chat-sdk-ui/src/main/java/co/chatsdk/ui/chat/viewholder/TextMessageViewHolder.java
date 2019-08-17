@@ -2,6 +2,8 @@ package co.chatsdk.ui.chat.viewholder;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.os.Build;
+import android.text.Html;
 import android.view.View;
 
 import java.util.List;
@@ -21,7 +23,13 @@ public class TextMessageViewHolder extends BaseMessageViewHolder {
     public void setMessage(Message message) {
         super.setMessage(message);
 
-        messageTextView.setText(message.getText() == null ? "" : message.getText());
+        if (message.getText() != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                messageTextView.setText(Html.fromHtml(message.getText(), Html.FROM_HTML_MODE_COMPACT));
+            } else {
+                messageTextView.setText(Html.fromHtml(message.getText()));
+            }
+        }
         setBubbleHidden(false);
         setTextHidden(false);
 

@@ -58,6 +58,7 @@
                 android:scrollbars="none"
                 android:dividerHeight="0dp"
                 android:divider="@null"
+                android:background="#efefef"
                 android:listSelector="@android:color/transparent"
                 android:descendantFocusability="afterDescendants"/>
             
